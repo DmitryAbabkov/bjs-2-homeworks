@@ -1,12 +1,14 @@
 function getArrayParams(...arr) {
-  let min = 0;
-  let max = 0;
+  let min = arr[0];
+  let max = arr[0];
   let avg = 0;
   let sum = 0;
 
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
-    avg = sum / arr.length; 
+  function searchAvg() {
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+      avg = sum / arr.length; 
+    }
   }
 
   function searchMaxAndMin () {
@@ -20,6 +22,7 @@ function getArrayParams(...arr) {
   }
 
     searchMaxAndMin();
+    searchAvg();
 
   return { min: min, max: max, avg: +avg.toFixed(2) };
 }
