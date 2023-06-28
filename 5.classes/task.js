@@ -59,3 +59,38 @@ class DetectiveBook extends Book {
     }
 }
 
+
+class Library {
+    constructor(name) {
+        this.name = name;
+        this.books = [];
+    }
+
+    addBook(book) {
+        if(book.state > 30) {
+            this.books.push(book);
+        }
+        
+    }
+
+    findBookBy(type, value) {
+
+        for(let i = 0; i < this.books.length; i++) {
+            if (this.books[i].hasOwnProperty(type) && this.books[i][type] === value) {
+                    return this.books[i];      
+            }
+        }
+        return null;
+    }
+
+    giveBookByName(bookName) {
+        const searchEl = this.books.find(item => item.name === bookName);
+        if (typeof searchEl === 'object') {
+            let index = this.books.indexOf(searchEl);
+            this.books.splice(index, 1);
+            return searchEl;
+        } else {
+            return null;
+        }      
+    }
+}
