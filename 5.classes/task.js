@@ -94,3 +94,44 @@ class Library {
         }      
     }
 }
+
+// Task 3
+
+class Student {
+	constructor(name) {
+		this.name = name;
+		this.marks = {};
+	}
+
+	addMark(count, type) {
+        if (count >= 2 && count <= 5 ) {
+            if(this.marks.hasOwnProperty(type)) {
+                this.marks[type].push(count);
+            } else {
+                this.marks[type] = [];
+                this.marks[type].push(count);
+            }
+        } else {
+            return;
+        }
+
+	}
+
+    getAverageBySubject(type) {
+        if (this.marks.hasOwnProperty(type)) {
+           return this.marks[type].reduce((acc, item) => {
+           return acc += item / this.marks[type].length;
+            }, 0);
+        } else {
+            return 0;
+        }
+    }
+
+    getAverage() {
+        let arr = Object.keys(this.marks);
+       return arr.reduce((acc, item) => {
+      return acc += this.getAverageBySubject(item) / arr.length;    
+        }, 0);
+    }
+}
+
