@@ -55,3 +55,61 @@ function getTriangle(a, b, c) {
 	}
 
 }
+
+
+class Worker {
+    constructor(name, surname, rate, days) {
+        this._name = name;
+        this._surname = surname;
+        this._rate = rate;
+        this._days = days;
+    }
+    get name() {
+        return this._name;
+    }
+    get surname() {
+        return this.surname;
+    }
+    set rate(rate) {
+        this.rate = rate;
+    }
+    get rate() {
+        return this.rate;
+    }
+    set days(days) {
+        this.days = days;
+    }
+    get days() {
+        return this.days;
+    }
+
+    getSalary() {
+        return this._rate * this._days;
+    }
+}
+
+const rab1 = new Worker ('Maks', 'Kuzmin', 1200, 10);
+const rab2 = new Worker ('Dmitry', 'Ababkov', 5000, 10);
+
+console.log(rab1.getSalary() + rab2.getSalary());
+
+
+class MyString {
+    reverse(str) {
+       const rev = str.split('').reverse().join('');
+       return rev;
+    }
+
+    ucFirst(str) {
+
+    }
+
+    ucWords(str) {
+
+    }
+
+}
+
+const str = new MyString();
+
+console.log(str.reverse("Перевернутая"));

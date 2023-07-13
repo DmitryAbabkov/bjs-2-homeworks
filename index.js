@@ -35,3 +35,24 @@ function getUsersNamesInAgeRange(users, gender) {
   ];
 
   console.log(getUsersNamesInAgeRange(people, "мужской"));
+
+
+  setTimeout(() => {
+    console.log('hello');
+  }, 1000);
+
+  setInterval(() => {
+    console.log('Ку');
+  }, 1000);
+  clearInterval(2);
+
+  let hr = new XMLHttpRequest();
+
+  function process() {
+    console.log(hr.responseText);
+  }
+
+  hr.onload = process;
+
+  hr.open("GET","https://www.cbr-xml-daily.ru/daily_json.js");
+  hr.send();
